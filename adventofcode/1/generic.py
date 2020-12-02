@@ -10,12 +10,12 @@ def prep_report(report: str) -> List[str]:
     return [int(item) for item in report.splitlines() if item]
 
 
-def prod(iterator: List[Union[int, float]]):
+def prod(iterable: List[Union[int, float]]):
     """
     Pyhton <3.8 does not have a product fucntion
-    Think sum but for miltiplication
+    Think sum but for multiplication
     """
-    return reduce(mul, iterator)
+    return reduce(mul, iterable)
 
 
 def main(expense_report: str, number: int = 2):
