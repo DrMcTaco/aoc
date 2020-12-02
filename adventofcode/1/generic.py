@@ -11,7 +11,7 @@ def prep_report(report: str) -> List[str]:
 
 def prod(iterator: List[Union[int, float]]):
     """
-    Pyhton <3.8 does not have a product funtion
+    Pyhton <3.8 does not have a product fucntion
     Think sum but for miltiplication
     """
     return reduce(mul, iterator)
