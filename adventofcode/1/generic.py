@@ -28,7 +28,6 @@ def main(expense_report: str, number: int = 2):
 
 if __name__ == "__main__":
     report = Path("expense_report.txt")
-    print(argv)
     if len(argv) > 1:
         main(report.open().read(), int(argv[1]))
     else:
