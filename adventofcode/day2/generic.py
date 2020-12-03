@@ -33,7 +33,7 @@ class Password:
 
     @property
     def is_valid_position(self):
-        return (self.password[self.policy.minimum  -1] == self.policy.character) ^ (
+        return (self.password[self.policy.minimum - 1] == self.policy.character) ^ (
             self.password[self.policy.maximum - 1] == self.policy.character
         )
 

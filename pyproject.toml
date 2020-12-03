@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "adventofcode2020"
+name = "adventofcode"
 version = "0.1.0"
 description = "Advent of code 2020 as a python package"
 authors = ["Dan Rubin <dmrubin3@gmail.com>"]
