@@ -13,9 +13,7 @@ def parse_boarding_pass(bpass: str):
     return row, col, id
 
 ids = [parse_boarding_pass(bpass)[2] for bpass in data.splitlines()]
-ids.sort()
 full_plane = set(range(min(ids), max(ids)))
 my_seat = list(full_plane - set(ids))
 print(f"The highest seat ID was: {max(ids)}")
 print(f"My seat ID: {my_seat[0]}")
-
