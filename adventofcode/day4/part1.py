@@ -45,7 +45,11 @@ def pares_inputs(input: str):
     return re.split(blank_line_re, input)
 
 
-passports = [Passport.from_string(input) for input in pares_inputs(data)]
+def main():
+    passports = [Passport.from_string(input) for input in pares_inputs(data)]
 
-vaid_passports = sum([int(passport.is_valid) for passport in passports])
-print(f"There are {vaid_passports} valid passports")
+    vaid_passports = sum([int(passport.is_valid) for passport in passports])
+    print(f"There are {vaid_passports} valid passports")
+
+if __name__ == "__main__":
+    main()
