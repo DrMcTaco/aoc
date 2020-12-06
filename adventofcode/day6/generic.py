@@ -18,6 +18,7 @@ def count_any_yes(input: str):
 def count_all_yes(input: str):
     return len(letters.intersection(*[set(resp) for resp in input.split()]))
 
+
 def main(data: str):
     # separate each group into a strin
     # make a set of chars in the strin
