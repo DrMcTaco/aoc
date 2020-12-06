@@ -22,8 +22,7 @@ def count_all_yes(input: str):
 def main(data: str):
     # separate each group into a strin
     # make a set of chars in the strin
-    # take set diff of lowecase letters with group response
-    # subtract diff from 26 to get number of `yes` answers
+    # find the intersection of letters with response set
     num_any_yes = sum([count_any_yes(input) for input in pares_inputs(data)])
     num_all_yes = sum([count_all_yes(input) for input in pares_inputs(data)])
 
