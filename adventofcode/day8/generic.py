@@ -37,19 +37,39 @@ class Computer:
         self.__getattribute__(inst)(int(arg))
 
     def run(self):
-        while not self.stop or self.stack_pointer >= len(self.instructions):
+        while not self.stop:
             self.execute_inst()
+            if self.stack_pointer >= len(self.instructions):
+                self.stop = True
+
         print(
             f"the exit code is {self.exit_code} and the value of the accumulator is: {self.accumulator}"
         )
+        return self.exit_code
 
 
-def main(data_: str):
-    jmp_nops = [
-        index for index, inst in enumerate(data_, 0) if "jmp" in inst or "nop" in inst
-    ]
-    comp = Computer(instructions=data_)
-    comp.run()
+def main(data_: str, fixloop: bool = True):
+    if fixloop:
+        jmp_nops = [
+            index for index, inst in enumerate(data_, 0) if "jmp" in inst or "nop" in inst
+        ]
+        for index in jmp_nops:
+            if "jmp" in data_[index]:
+                data_[index] = data_[index].replace("jmp", "nop")
+                comp = Computer(instructions=data_)
+                ret = comp.run()
+                data_[index] = data_[index].replace("nop", "jmp")
+            else:
+                data_[index] = data_[index].replace("nop", "jmp")
+                comp = Computer(instructions=data_)
+                ret = comp.run()
+                data_[index] = data_[index].replace("jmp", "nop")
+
+            if not ret:
+                break
+    else:
+        comp = Computer(instructions=data_)
+        ret = comp.run()
 
 
 t_data = """nop +0
