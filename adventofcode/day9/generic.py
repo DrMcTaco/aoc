@@ -6,8 +6,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 def check_valid(preamble: List[int], val: int):
-    return (val in {sum(combo) for combo in combinations(preamble, 2)})
+    return val in {sum(combo) for combo in combinations(preamble, 2)}
+
 
 def find_invalid(input: List[int], preamble_len: int):
     preamble = input[0:preamble_len]
@@ -17,6 +19,7 @@ def find_invalid(input: List[int], preamble_len: int):
             return value
         preamble.pop(0)
         preamble.append(input[index])
+
 
 def find_invalid_components(input: List[int], invalid_num: int):
     components = []
@@ -31,10 +34,12 @@ def find_invalid_components(input: List[int], invalid_num: int):
                     return components
     raise RuntimeError("Did not find vulnerability")
 
+
 def main(data_: List[int], preamble_len: int):
     invalid_num = find_invalid(data_, preamble_len)
     invalid_components = find_invalid_components(data_, invalid_num)
     print(f"The weakness is {min(invalid_components) + max(invalid_components)}")
+
 
 t_data = """35
 20
