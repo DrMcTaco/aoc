@@ -54,7 +54,7 @@ def main(input: List[int]):
 
 
     results = {}
-    print(clusters)
+
     for index, cluster in clusters.items():
         # compute number of valide permutations per cluster of nodes
         results[index] = {"combos": 0}
