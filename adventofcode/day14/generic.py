@@ -33,11 +33,12 @@ def initialize_docking_v1(input: List[str]):
             mask = inst.split("=")[-1].strip()
     print(sum(memory.values()))
 
+
 def apply_mask_v2(mask, value):
     binary = f"{value:036b}"
-    flts = mask.count("X")
+    cnt_floating_bits = mask.count("X")
     results = []
-    for i in range(2 ** flts):
+    for i in range(2 ** cnt_floating_bits):
         flt_val = list(f"{i:036b}")
         res = ""
         for index, bit in enumerate(mask, 0):
@@ -50,6 +51,7 @@ def apply_mask_v2(mask, value):
         results.append(int(res, 2))
     return results
 
+
 def initialize_docking_v2(input: List[str]):
     mask = "0" * 36
     memory = defaultdict(int)
@@ -60,7 +62,7 @@ def initialize_docking_v2(input: List[str]):
             value = int(value.strip())
             indicies = apply_mask_v2(mask, index)
             for mapped_index in indicies:
-                memory[mapped_index]= value
+                memory[mapped_index] = value
         if "mask" in inst:
             mask = inst.split("=")[-1].strip()
     print(sum(memory.values()))
