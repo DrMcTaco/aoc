@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "adventofcode"
+version = "0.1.0"
+description = "Advent of code 2020 as a python package"
+authors = ["Dan Rubin <dmrubin3@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+advent-of-code-data = "^0.8.5"
+python-dotenv = "^0.15.0"
+
+[tool.poetry.dev-dependencies]
+ipdb = "^0.13.4"
+black = {version = "^20.8b1", allow-prereleases = true}
+better-exceptions = "^0.2.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
